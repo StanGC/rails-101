@@ -8,22 +8,23 @@ class PostsController < ApplicationController
 
   def create
     @post = @group.posts.new(post_params)
+    @post.author = current_user
 
     if @post.save then redirect_to group_path(@group) else render :new end
   end
 
   def edit
-    @post = @group.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def update
-    @post = @group.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id])
 
     if @post.update(post_params) then redirect_to group_path(@group) else render :edit end
   end
 
   def destroy
-    @post = @group.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id])
 
     @post.destroy
 
