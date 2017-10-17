@@ -1,6 +1,6 @@
 module ApplicationHelper
   def flash_messages
-    flash_types          = { success: "success", error: "danger", alert: "warning", notice: "info" }
+    flash_types = { success: "success", error: "danger", alert: "warning", notice: "info" }
 
     alerts =
       flash.map do |msg_type, message|
