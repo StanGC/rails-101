@@ -5,6 +5,8 @@ class Group < ActiveRecord::Base
   has_many :group_users
   has_many :members, through: :group_users, source: :user
 
+  scope :popular, -> { order("posts_count DESC") }
+
   def editable_by?(user)
     user && user == owner
   end
