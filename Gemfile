@@ -18,6 +18,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # Backend Use
 gem 'devise'
 
+# Other
+gem 'populator'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

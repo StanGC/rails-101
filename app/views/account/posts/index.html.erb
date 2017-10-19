@@ -19,13 +19,13 @@
       <% @posts.each do |post| %>
         <tr>
           <td>
-            <p><%= post.content %></p>
+            <p><%= render_post_content(post) %></p>
           </td>
           <td>
-            <%= post.group.title %>
+            <%= render_group_title(post.group) %>
           </td>
           <td>
-            <%= post.updated_at %>
+            <%= render_post_updated_at(post) %>
           </td>
           <td>
             <%= link_to("Edit", edit_group_post_path(post.group, post), class: "btn btn-mini")%>
