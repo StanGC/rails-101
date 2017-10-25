@@ -1,3 +1,10 @@
 class Message < ActiveRecord::Base
-  belongs_to :post
+  validates :content, presence: true
+
+  belongs_to :post, dependent: :destroy
+  belongs_to :user, dependent: :destroy
+
+  def user_identity
+    self.user.try(:name) || "遊客"
+  end
 end
