@@ -1,0 +1,12 @@
+<div class="message">
+  <p>
+    #
+    <%= message.id %>
+    <%= message.user_identity %>
+    於
+    <%= render_message_created_at(message) %>
+  </p>
+  <p class="message-contents">
+    <%= message.content %>
+  </p>
+</div>

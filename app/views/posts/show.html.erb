@@ -1,37 +1,43 @@
-<div class="post">
-  <h3>Post</h3>
-  <p class="post-content"><%= @post.content %></p>
-  <p>
-    Edit by:
-    <%= @post.author.name %>
-    --
-    <%= render_post_created_at(@post) %>
-  </p>
-</div>
-
-<h3>Comments</h3>
-<div id="message-list" class="messages">
-  <% @messages.each do |message| %>
-    <div class="message">
+<div class="container">
+  <div class="row">
+    <div class="post">
+      <h3>Post</h3>
+      <p class="post-content"><%= @post.content %></p>
       <p>
-        #
-        <%= message.id %>
-        <%= message.user_identity %>
-        於
-        <%= render_message_created_at(message) %>
-      </p>
-      <p class="message-contents">
-        <%= message.content %>
+        Create by:
+        <%= @post.author.name %>
+        --
+        <%= render_post_created_at(@post) %>
       </p>
     </div>
-  <% end %>
-</div>
 
-<%= simple_form_for [@group, @post, @message], remote: true do |f| %>
-  <div class="form-group">
-    <%= f.input :content, label: 'Comment Board', class: "form-control" %>
+    <h3>Comments</h3>
+    <div id="message-list" class="messages">
+      <% @messages.each do |message| %>
+        <div class="message">
+          <p>
+            #
+            <%= message.id %>
+            <%= message.user_identity %>
+            於
+            <%= render_message_created_at(message) %>
+          </p>
+          <p class="message-contents">
+            <%= message.content %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="comment-board">
+      <%= simple_form_for [@group, @post, @message], remote: true do |f| %>
+        <div class="form-group">
+          <%= f.input :content, label: 'Comment Board', class: "form-control" %>
+        </div>
+        <div class="form-actions">
+          <%= f.submit "Submit", disable_with: 'Submitting...' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="form-actions">
-    <%= f.submit "Submit", disable_with: 'Submitting...' %>
-  </div>
-<% end %>
+</div>
