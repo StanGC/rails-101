@@ -12,7 +12,7 @@ set :rbenv_ruby, "2.2.4"
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w(rake gem bundle ruby rails)
 set :rbenv_roles, :all
-set :branch, ENV['BRANCH'] if ENV['BRANCH']
+# set :branch, ENV['BRANCH'] if ENV['BRANCH']
 
 append :linked_files, 'config/database.yml', 'config/secrets.yml'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
