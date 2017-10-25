@@ -1,6 +1,6 @@
 <div class="span12">
   <%= render "common/user_nav" %>
-
+  <h1>This is test</h1>
   <div class="group">
     <%= link_to("New group", new_group_path , class: "btn btn-mini btn-primary pull-right" ) %>
   </div>
@@ -10,6 +10,7 @@
         <td> # </td>
         <td> Title </td>
         <td> Description </td>
+        <td> Create time </td>
       </tr>
     </thead>
 
@@ -30,6 +31,9 @@
               <%= link_to("Edit", edit_group_path(group), class: "btn btn-mini" ) %>
               <%= link_to("Delete", group_path(group), class: "btn btn-mini", method: :delete, confirm: "Are you sure?" ) %>
             <% end %>
+          </td>
+          <td>
+            <%= group.created_at %>
           </td>
         </tr>
       <% end %>
