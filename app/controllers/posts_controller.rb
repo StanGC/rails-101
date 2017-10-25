@@ -1,7 +1,13 @@
 class PostsController < ApplicationController
   before_action :find_group
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
   before_action :member_required, only: [:new, :create]
+
+  def show
+    @post = @group.posts.includes(:messages).find(params[:id])
+    @messages = @post.messages
+    @message = Message.new
+  end
 
   def new
     @post = @group.posts.build

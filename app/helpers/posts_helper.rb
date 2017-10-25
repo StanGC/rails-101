@@ -1,6 +1,10 @@
 module PostsHelper
   def render_post_content(post)
-     simple_format(post.content)
+    link_to(simple_format(post.content), group_post_path(post.group, post))
+  end
+
+  def render_post_created_at(post)
+    post.created_at.strftime("%F %H:%m")
   end
 
   def render_post_updated_at(post)
