@@ -20,6 +20,7 @@ gem 'devise'
 # Other
 gem 'populator'
 gem 'mysql2', '~> 0.3.18'
+gem 'unicorn'
 
 group :development, :test do
   gem 'byebug'
@@ -29,4 +30,5 @@ group :development, :test do
   gem "capistrano-rvm", "~> 0.1.1", require: false
   gem "capistrano-rails", "~> 1.1", require: false
   gem "capistrano-rbenv", "~> 2.0", require: false # production server use rbenv
+  gem 'capistrano3-unicorn'
 end
