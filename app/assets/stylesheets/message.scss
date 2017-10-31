@@ -1,0 +1,13 @@
+.message{
+  border-style: groove;
+  margin: 20px 0;
+  padding: 10px 10px 0px 10px;
+  .message-contents{
+    background-color: #DFE6FF;
+    padding: 10px 0px 10px 10px;
+  }
+}
+
+#message_content{
+  width: 100%;
+}
