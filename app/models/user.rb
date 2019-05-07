@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   has_many :group_users
   has_many :participated_groups, through: :group_users, source: :group
 
+  devise :omniauthable, omniauth_providers: %i[developer]
+  has_many :oauth_providers, dependent: :destroy
+
   def join!(group)
     participated_groups << group
   end
@@ -18,5 +21,12 @@ class User < ActiveRecord::Base
 
   def is_member_of?(group)
     participated_groups.include?(group)
+  end
+
+  def password
+  end
+
+  def self.from_omniauth(auth)
+    OauthProvider.find_for_oauth(auth).user
   end
 end
