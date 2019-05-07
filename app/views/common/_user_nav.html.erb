@@ -1,5 +1,6 @@
 <div class="authorization">
   <% unless current_user %>
+    <%= sign_in_with_provider %>
     <%= link_to("Sign In", new_user_session_path, class: "btn btn-info") %>
     <%= link_to("Registration", new_user_registration_path, class: "btn btn-info") %>
   <% else %>
