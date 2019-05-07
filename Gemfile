@@ -22,6 +22,9 @@ gem 'populator'
 gem 'mysql2', '~> 0.3.18'
 gem 'unicorn'
 
+gem 'omniauth'
+gem 'omniauth-oauth2'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
